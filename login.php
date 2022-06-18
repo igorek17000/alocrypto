@@ -19,20 +19,22 @@ require("conf.php");
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://www.momentcrm.com/embed"></script>
-<script>
-  MomentCRM('init', {
-    'teamVanityId': 'alocryptotrade',
-    'doChat': true,
-    'doTracking': true,
-  });
-</script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        MomentCRM('init', {
+            'teamVanityId': 'alocryptotrade',
+            'doChat': true,
+            'doTracking': true,
+        });
+    </script>
 </head>
 
 <body>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <center>
-       <?php
-       require("./components/navbar.php")
-       ?>
+        <?php
+        require("./components/navbar.php")
+        ?>
         <!-- ===============SECTION 1================== -->
 
         <section class="regsec1">
@@ -50,22 +52,7 @@ require("conf.php");
                     <form id="loginsubmit" action="handler" method="post">
 
                         <div class="logindiv ">
-                            <?php
-                            if (isset($_SESSION['message']) and !empty($_SESSION['message'])) {
 
-
-
-                            ?>
-                                <div class="alert alert-info mt-4" role="alert">
-                                    <?php
-                                    echo @$_SESSION['message'];
-                                    @$_SESSION['message'] = "";
-                                    ?>
-                                </div>
-
-                            <?php
-                            }
-                            ?>
                             <div class="mb-3 mt-3 ms-auto me-auto">
                                 <label for="email" class="form-label text-white">Email address</label>
                                 <input type="email" name="email" class="form-control w-100" id="email" aria-describedby="emailHelp">
@@ -76,7 +63,7 @@ require("conf.php");
                                 <label for="password" class="form-label text-white">Password</label>
                                 <input type="password" name="password" class="form-control" id="password">
                             </div>
-
+                            <?php $message = $_SESSION['message']; ?>
 
                             <button type="submit" name="signin_submit" class="loginbutton">Log in</button>
 
@@ -87,9 +74,23 @@ require("conf.php");
 
                         </div>
                         <script>
+                            var message = "<?php echo $message;   ?>";
+                            if (message) {
+                                swal({
+                                    title: "Verify Login",
+                                    text: message,
+                                    icon: "info",
+                                });
+                                // message="";
+                            }
+
+
                             $(document).ready(function() {
+
+
+
                                 $("#loginsubmit").submit(function(e) {
-                                    
+
                                     var email = $("#email").val()
                                     var password = $("#password").val()
                                     if (email && password) {
@@ -111,6 +112,7 @@ require("conf.php");
                         <a href="/" class="forgstyle4">Back to home page</a>
 
                     </div> -->
+                    <?php $_SESSION['message']="";   ?>
                 </div>
             </div>
         </section>

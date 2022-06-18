@@ -10,6 +10,7 @@ require("conf.php");
   <title>AloCryptoTrade:Resetpassword</title>
   <link href='#' rel='stylesheet'>
   <script src="https://www.momentcrm.com/embed"></script>
+
 <script>
   MomentCRM('init', {
     'teamVanityId': 'alocryptotrade',
@@ -17,6 +18,9 @@ require("conf.php");
     'doTracking': true,
   });
 </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
   <link href='#' rel='stylesheet'>
   <!-- <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script> -->
   <style>
@@ -208,10 +212,21 @@ require("conf.php");
            dataType: "text",
            success: function (response) {
             if(response==true){
-              alert("successful");
-              window.location.href="./signin";
+              swal({
+                title: "Password Reset",
+                text: "Successful",
+                icon: "success",
+                button: "Login",
+            }).then(()=>{
+               window.location.href="./signin"
+            });
             }else{
-             alert(response);
+              swal({
+                title: "Error occour!",
+                text: response,
+                icon: "error",
+                button: "Ok ",
+            })
             }
            }
          });

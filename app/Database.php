@@ -313,10 +313,10 @@ $message = '<!DOCTYPE html><html>
         $pass = md5($pass);
         
         $myconn = self::getConn();
-        $qury = "SELECT `id` FROM `users` WHERE `email`=:email AND `password`=:pass";
+        $qury = "SELECT * FROM `users` WHERE `email`=:email AND `password`=:pass";
         $stm = $myconn->prepare($qury);
         $stm->execute(array(":email" => $email, ":pass" => $pass));
-        if ($stm->rowCount() >= 1) {
+        if ($stm->rowCount() >0) {
             
             $code = self::generateRandomString(25);
             $ep = date("Y-m-d h:i:s", strtotime(date("Y-m-d h:i:s") . " +30 minutes"));
@@ -345,7 +345,7 @@ $message = '<!DOCTYPE html><html>
                     if ($stmm->rowCount() > 0) {
                          
                         self::send_mail($email, $mess, "Login Attempt");
-                        return true;
+                        return "true";
                     }else{
 
                         return "something went wrong Contact Support";
@@ -360,7 +360,7 @@ $message = '<!DOCTYPE html><html>
                     if ($stm->execute()) {
                         // $mess = " <center> <h3>  click the below to continue</h3>  <a href='http://localhost/alocryto/resetpassword.php?code=$code&email={$email}><button type='button' style='width:fit-content; min-width:150px; padding:10px; background-color:green;color:white; border-radius:15px;'>Verify</button></center>";
                         self::send_mail($email, $mess, "resetpassword");
-                        return true;
+                        return "true";
                     }else{
 
                         return "something went wrong Contact Support";
@@ -457,12 +457,12 @@ $message = '<!DOCTYPE html><html>
     public static function getConn()
     {
 
-        // $host = "156.67.74.101";
-        // $username = "u538836443_alocryptotrade";
-        // $password = "Adedamolarioland2222@gmail.com";
-        $host = "localhost";
-        $username = "root";
-        $password = "";
+        $host = "156.67.74.101";
+        $username = "u538836443_alocryptotrade";
+        $password = "Adedamolarioland2222@gmail.com";
+        // $host = "localhost";
+        // $username = "root";
+        // $password = "";
         // db=sql5440458
 
         try {
@@ -995,9 +995,9 @@ $message = '<!DOCTYPE html><html>
         }
     }
 
-    public static function register($email, $pass, $name, $ph, $pic): string
+    public static function register($email, $pass, $name, $ph, $pic)
     {
-
+        require("../conf.php");
         $country = self::ip_visitor_country();
         $myconn = self::getConn();
         $qury = "SELECT `id` FROM `users` WHERE `email`=:email ";
@@ -1046,24 +1046,60 @@ $message = '<!DOCTYPE html><html>
             //  ":earns" => $earns, ":withdraw" => $withdraw, ":referer" => $referer));
 
             if ($stm->execute() and $stm1->execute()) {
-                $sub = "Welcome to CryptoTradeGain";
-                $mess = "
-              <img src='https://cryptogaintrade.com/assets/img/brand/blue.png' width='100px' height='50px' />
-            <br>
-            <h2>
-             Welcome " . $name . "
-            </h2>
-            <p>To Start Earning, you need to make a deposit, Choose an investment plan, Invest and Earn. </p>
-            <br>
-            <br>
-            <br>
-            <p><a href='mailto:riotech2222@gmail.com'>riotech2222@gmail.com</a></p>
 
-             ";
-                // $mess = "please click on the following link to verify your account http://" . $_SERVER['SERVER_NAME'] . '/verify.php?token=' . $token;
-                self::send_mail($email, $mess, $sub);
 
-                return "true";
+                $code = self::generateRandomString(25);
+                $ep = date("Y-m-d h:i:s", strtotime(date("Y-m-d h:i:s") . " +30 minutes"));
+                //  $mess="just texting";
+                $mess = self::EmailMessage("Login Verification","Autorize Login",BASEURL."loginverify.php?code=".$code,"we discover login attempt in you alocrytoTrade Accout. if you are the one click the following below to continue. else do password reset.","") ;
+                
+                $sel = "SELECT * FROM `users` WHERE `email`=:em";
+                $stmm = self::getConn()->prepare($sel);
+                $stmm->bindParam("em", $email);
+                $stmm->execute();
+              
+                if ($stmm->rowCount() > 0) {
+                    
+                    $sel = "SELECT * FROM `authorization` WHERE `email`=:em";
+                    $stmm = self::getConn()->prepare($sel);
+                    $stmm->bindParam("em", $email);
+                    $stmm->execute();
+                    if ($stmm->rowCount() > 0) {
+        
+                        $sel1 = "UPDATE `authorization` SET `code` =:cd , `exp_data`=:dp WHERE `email`=:em";
+                        $stmm = self::getConn()->prepare($sel1);
+                        $stmm->bindParam("em", $email);
+                        $stmm->bindParam("cd", $code);
+                        $stmm->bindParam("dp", $ep);
+                        $stmm->execute();
+                        if ($stmm->rowCount() > 0) {
+                             
+                            self::send_mail($email, $mess, "Login Attempt");
+                            return "true";
+                        }else{
+    
+                            return "something went wrong Contact Support";
+                        }
+                    } else {
+        
+                        $ee = "INSERT INTO `authorization`( `code`, `email`, `exp_data`) VALUES (:co,:em,:ep)";
+                        $stm = self::getConn()->prepare($ee);
+                        $stm->bindParam("co", $code);
+                        $stm->bindParam("em", $email);
+                        $stm->bindParam("ep", $ep);
+                        if ($stm->execute()) {
+                            // $mess = " <center> <h3>  click the below to continue</h3>  <a href='http://localhost/alocryto/resetpassword.php?code=$code&email={$email}><button type='button' style='width:fit-content; min-width:150px; padding:10px; background-color:green;color:white; border-radius:15px;'>Verify</button></center>";
+                            self::send_mail($email, $mess, "resetpassword");
+                            return "true";
+                        }else{
+    
+                            return "something went wrong Contact Support";
+                        }
+                    }
+                }else{
+                    return "Unrecorgnized Email";
+                }
+
             } else {
                 return "Error in registeration contact the admin";
             }
