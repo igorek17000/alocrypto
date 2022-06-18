@@ -1,0 +1,15 @@
+RewriteEngine On
+RewriteRule ^signup register.php [NC]
+RewriteRule ^signin login.php [NC]
+RewriteRule ^handler app/api.php [NC]
+RewriteRule ^dashboard dashboard.php [NC]
+RewriteRule ^home index.php [NC]
+RewriteRule ^about aboutus.php [NC]
+# RewriteRule ^about Terms.php [NC]
+RewriteRule ^logout logout.php [NC]
+RewriteRule ^forgetpassword forgotpw.php [NC]
+RewriteRule ^account dashboard.php [NC] 
+RewriteRule ^privacy pivacypolicy.php [NC]
+RewriteRule ^terms terms.php [NC]
+RewriteRule ^contact contact.php [NC]
+

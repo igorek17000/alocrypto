@@ -1,0 +1,649 @@
+@import url("https://fonts.googleapis.com/css2?family=Chicle&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+
+html,
+body {
+  color: #151557 !important;
+  background-color: #fff !important;
+  overflow-x: hidden;
+  font-family: "Poppins", sans-serif !important;
+}
+.nav-link {
+  color: #151557 !important;
+}
+.dropdown-item{
+    border: none !important;
+}
+.dropdown:hover .dropdown-menu {
+    display: block !important;
+    margin-top: 0 !important;  
+ }
+ header{
+     background: rgb(241, 161, 161) url("../images/updatebackend.jpeg") !important;
+     background-repeat: no-repeat !important;
+     background-position: center !important;
+     background-size: cover !important;
+     height: fit-content !important;
+     min-height: 600px !important;
+     background-blend-mode: darken !important;
+ }
+
+ /* ====================================================== footer ====================================================================== */
+
+.sec9 {
+  background: linear-gradient(to right, #00093c, #2d0b00);
+  color: #fff;
+  padding: 50px 70px;
+  font-size: 13px;
+}
+
+.rowsec9 {
+  width: 85%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.colsec9 {
+  flex-basis: 25%;
+}
+
+.colsec9:nth-child(2), .colsec9:nth-child(3) {
+  flex-basis: 15%;
+}
+
+.logosec9 {
+  width: 80px;
+  border-radius: 50%;
+  margin-bottom: 30px;
+}
+
+.colsec9 h3 {
+  width: fit-content;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.email-id {
+  width: fit-content;
+  border-bottom: 1px solid #ccc;
+  margin: 20px 0;
+}
+
+ul li {
+  list-style: none;
+  margin-bottom: 12px;
+}
+
+ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+form {
+  padding-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 50px;
+}
+
+form .far {
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+form input {
+  width: 100%;
+  background: transparent;
+  color: #ccc;
+  border: 0;
+  outline: none;
+}
+
+form button {
+  background: transparent;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+}
+
+form button .fas {
+  font-size: 16px;
+  color: #ccc;
+}
+
+.social-icons .fab {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  font-size: 20px;
+  color: #000;
+  background: #fff;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+hr {
+  width: 90%;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  margin: 20px auto;
+}
+
+.copyright {
+  text-align: center;
+}
+
+.underline {
+  width: 100%;
+  height: 5px;
+  background: #767676;
+  border-radius: 3px;
+  position: absolute;
+  top: 25px;
+  left: 0;
+  overflow: hidden;
+}
+
+.underline span {
+  width: 15px;
+  height: 100%;
+  background: #fff;
+  border-radius: 3px;
+  position: absolute;
+  top: 0;
+  left: 10px;
+  animation: moving 2s linear infinite;
+}
+
+@keyframes moving {
+  0% {
+      left: -20px;
+  }
+  100% {
+      left: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .colsec9 {
+      flex-basis: 100%;
+  }
+  .colsec9:nth-child(2), .colsec9:nth-child(3) {
+      flex-basis: 15%;
+  }
+}
+
+/* ===================================================================== PRIVACY POLICY SECTION 11================================================================================================ */
+
+.sec11 {
+  background-image: url(./images/aboutusimg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 50vh;
+  margin-top: 60px;
+  /* max-width: 1080px; */
+  max-height: 400px;
+}
+
+.h1stylisec11 h1 {
+  color: #fff;
+  font-size: 70px;
+  text-align: center;
+  padding-top: 110px;
+}
+
+/* ===============================================  SECTION 12  ======================================================== */
+
+.sec12 {
+  margin: 30px 10px;
+}
+
+.pp1sec12 {
+  font-size: 14px;
+  color: #7a7a7a;
+  line-height: 25px;
+  text-align: left;
+}
+
+.pp2sec12 {
+  padding-top: 20px;
+  font-size: 14px;
+  color: #7a7a7a;
+  line-height: 25px;
+  text-align: left;
+}
+
+.pp3sec12 {
+  padding-top: 20px;
+  font-size: 14px;
+  color: #7a7a7a;
+  line-height: 25px;
+  text-align: left;
+}
+
+/* ===============================================  SECTION 13  ======================================================== */
+
+.sec13 {
+  margin: 30px 10px;
+}
+
+.ppiyasec13 {
+  text-align: left;
+  font-weight: 700;
+  font-size: 25px;
+}
+
+.pp1sec13 {
+  padding-top: 30px;
+  color: #7a7a7a;
+  line-height: 25px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.pp2sec13 {
+  padding-top: 30px;
+  color: #7a7a7a;
+  line-height: 25px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.pp2sec13 {
+  padding-top: 30px;
+  color: #7a7a7a;
+  line-height: 25px;
+  font-size: 14px;
+  text-align: left;
+}
+
+/* ===============================================  SECTION 14  ======================================================== */
+
+.sec14 {
+  margin: 30px 10px;
+}
+
+.ppiyasec14 {
+  text-align: left;
+  font-weight: 700;
+  font-size: 25px;
+}
+
+.spansec14 {
+  text-align: left;
+  padding-top: 20px;
+  color: #7a7a7a;
+  line-height: 25px;
+  font-size: 14px;
+}
+
+.spansec14 {
+  margin-left: 10px;
+}
+
+.ulize {
+  line-height: 20px;
+  margin: 20px 40px;
+}
+
+.ulize li {
+  list-style: upper-alpha;
+  text-align: left;
+  line-height: 20px;
+  font-size: 14px;
+  color: #7a7a7a;
+}
+
+/* ===================================================================== TERNS AND CONDITIONS 21================================================================================================ */
+
+.sec21 {
+  background-image: url(./images/aboutusimg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 50vh;
+  margin-top: 60px;
+  /* max-width: 1080px; */
+  max-height: 400px;
+}
+
+.h1stylisec21 h1 {
+  color: #fff;
+  font-size: 70px;
+  text-align: center;
+  padding-top: 110px;
+}
+
+/* ===============================================  SECTION 22  ======================================================== */
+
+.sec22 {
+  margin: 30px 10px;
+}
+
+.pp1sec22 {
+  font-size: 15px;
+  color: #001144EB;
+  line-height: 25px;
+  text-align: left;
+  font-weight: 600px;
+}
+
+.termsli {
+  line-height: 20px;
+  margin: 20px 40px;
+}
+
+.termsli li {
+  list-style: upper-alpha;
+  text-align: left;
+  line-height: 20px;
+  font-size: 14px;
+  color: #001144EB;
+}
+
+/* ===============================================  SECTION 23  ======================================================== */
+
+.sec23 {
+  margin: 30px 10px;
+}
+
+.ppiyasec23 {
+  text-align: left;
+  font-weight: 800;
+  font-size: 20px;
+  color: #001144EB;
+}
+
+.listupwordings {
+  margin: 20px 10px;
+  line-height: 27px;
+  text-align: left;
+}
+
+.spany {
+  font-weight: 600;
+  color: #001144EB;
+}
+
+.listupwordings .fas {
+  font-size: 13px;
+}
+
+.listupwordings p {
+  color: #001144EB;
+  font-size: 14px;
+}
+
+/* ===============================================  SECTION 24  ======================================================== */
+
+.sec24 {
+  margin: 30px 10px;
+}
+
+.ppiyasec24 {
+  text-align: left;
+  font-weight: 800;
+  font-size: 16px;
+  color: #001144EB;
+}
+
+/* ===================================================================== Contact Us 31================================================================================================ */
+
+.sec31 {
+  background-image: url(./images/aboutusimg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 50vh;
+  margin-top: 60px;
+  /* max-width: 1080px; */
+  max-height: 400px;
+}
+
+.h1stylisec31 h1 {
+  color: #fff;
+  font-size: 70px;
+  text-align: center;
+  padding-top: 110px;
+}
+
+/* ====================================================  SECTION 32  =========================================================== */
+
+.sec41 {
+  margin: 30px 0px;
+  min-width: min-content;
+  padding: 0px 15px;
+}
+
+.h3styli {
+  text-align: left;
+  color: #001146;
+  font-size: 24px;
+}
+
+.overallflexxsec {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1381px;
+}
+
+.columnn {
+  flex-basis: 50%;
+}
+
+/* Full-width input fields */
+
+input[type=text], input[type=email] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+  color: #001466;
+}
+
+textarea {
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+  color: #001466;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for all buttons */
+
+.subm {
+  width: 200px;
+  height: 40px;
+  border-radius: 10px 10px;
+  margin-top: 25px;
+  background-color: #001466;
+  color: #fff;
+}
+
+.subm:hover {
+  opacity: 1;
+}
+
+/* Add padding to container elements */
+
+.container {
+  padding: 30px 16px;
+}
+
+/* Clear floats */
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.wordyy {
+  padding: 5px 50px;
+}
+
+.wordyy p {
+  line-height: 25px;
+  color: #001466;
+  font-size: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .overallflexxsec {
+      display: grid;
+  }
+}
+
+/* ===================================================================== LOGIN PAGE ================================================================================================ */
+
+.regsec1 {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), #192f59), url(./images/backgroundd.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 600px;
+  height: fit-content;
+  /* margin-top: 4.5rem; */
+}
+
+.midd {
+  display: grid;
+  justify-content: center;
+  padding-top: 4.5rem;
+}
+
+.boxx {
+  width: 400px;
+}
+
+.icon-area {
+  display: flex;
+  justify-content: space-between;
+}
+
+.boximgg {
+  width: 50px;
+}
+
+.emaildivv {
+  /* display: grid; */
+  /* line-height: 30px; */
+  margin-top: 20px;
+  width: 250px;
+  height: 50px;
+  background-color: whitesmoke;
+  margin-bottom: 50px;
+  
+}
+
+.emaildivv input {
+  height: 30px;
+border: none;
+outline: none;
+}
+/* 
+.passworddiv {
+  margin-top: 30px;
+  display: grid;
+  line-height: 30px;
+}
+
+.passworddiv input {
+  height: 30px;
+  width: 400px;
+  border-radius: 7px 7px;
+  color: black;
+  display: block;
+} */
+
+.logup {
+  text-align: center;
+  padding-top: 20px;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 10px;
+}
+
+/* .inputti {
+  display: flex;
+  justify-content: center;
+  width: 400px;
+}
+
+.gridi {
+  display: flex;
+  font-size: 12px;
+} */
+
+.loginbutton {
+  width: 250px;
+  height: 45px;
+  background-color: #465372;
+  color: white;
+  border-radius: 10px 10px;
+  margin-left: 0px;
+}
+
+/* ==========LOGIN PAGE LINKS BELOW============ */
+
+.forggclaz {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.forgstyle {
+  color: #fff8dc;
+  font-size: 15px;
+}
+
+.forgstyle:hover {
+  color: #ffcb84;
+  border-bottom: 2px solid white;
+}
+
+.forgstyle2 {
+  color: #fff8dc;
+  font-size: 15px;
+}
+
+.forgstyle2:hover {
+  color: #ffcb84;
+  border-bottom: 2px solid white;
+}
+
+.forgstyle3 {
+  color: #fff8dc;
+  font-size: 15px;
+}
+
+.forgstyle3:hover {
+  color: #ffcb84;
+  border-bottom: 2px solid white;
+}
+
+.forgstyle4 {
+  color: #fff8dc;
+  font-size: 15px;
+}
+
+.forgstyle4:hover {
+  color: #ffcb84;
+  border-bottom: 2px solid white;
+}
+
+.imggsty {
+  width: 70px;
+  height: 50px;
+}
