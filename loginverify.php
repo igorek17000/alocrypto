@@ -17,7 +17,7 @@ if (isset($_GET['code']) and !empty($_GET['code'])) {
         $nowdate = date('d-m-y h:i:s');
         if ($expdate > $nowdate) {
             $myconn = Database::getConn();
-            $qury = "SELECT `id` FROM `users` WHERE `email`=:email";
+            $qury = "SELECT * FROM `users` WHERE `email`=:email";
             $stm = $myconn->prepare($qury);
             $stm->execute(array(":email" => $usersdetaile->email));
             if ($stm->rowCount() >= 1) {

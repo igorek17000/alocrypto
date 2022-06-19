@@ -2,7 +2,7 @@
 require "./app/Database.php";
 
 
-if (isset($_GET['txid']) and isset($_GET['value']) and isset($_GET['status']) and isset($_GET['addr'])) {
+if (isset($_GET['txid']) and isset($_GET['value']) and isset($_GET['status']) and isset($_GET['addr']) and isset($_GET['secrite'])) {
     // $secret = "Mabcdastthrretyuuerthhherrrreeewbb5554olkdd";
     $value = htmlentities($_GET['value']);
 
