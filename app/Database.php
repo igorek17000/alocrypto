@@ -38,7 +38,50 @@ class Database
         }
     }
 
+    public static function verify_gmail()
+    {
+        require("../conf.php");
+        $ep = date("Y-m-d h:i:s", strtotime(date("Y-m-d h:i:s") . " +30 minutes"));
+        $code = self::generateRandomString(25);
+        $email = self::getUserDetails()->email;
+        $mess = self::EmailMessage("Account Verification", "Verification Account", BASEURL . "registerverify.php?code=" . $code, "The message should read....you are welcome to Alocryptotrade. A platform that trade on Bitcoin, mining Bitcoin and also trade on forex. We give $200 on registration and upon activating your Account with funding it. You get interest every 10hrs .Thanks", "");
+        $sel = "SELECT * FROM `authorization` WHERE `email`=:em";
+        $stmm = self::getConn()->prepare($sel);
+        $stmm->bindParam("em", $email);
+        $stmm->execute();
+        if ($stmm->rowCount() > 0) {
 
+            $sel1 = "UPDATE `authorization` SET `code` =:cd , `exp_data`=:dp WHERE `email`=:em";
+            $stmm = self::getConn()->prepare($sel1);
+            $stmm->bindParam("em", $email);
+            $stmm->bindParam("cd", $code);
+            $stmm->bindParam("dp", $ep);
+            $stmm->execute();
+            if ($stmm->rowCount() > 0) {
+
+                self::send_mail($email, $mess, "Account verification");
+                return "true";
+            } else {
+
+                return "something went wrong Contact Support";
+            }
+        } else {
+
+            $ee = "INSERT INTO `authorization`( `code`, `email`, `exp_data`) VALUES (:co,:em,:ep)";
+            $stm = self::getConn()->prepare($ee);
+            $stm->bindParam("co", $code);
+            $stm->bindParam("em", $email);
+            $stm->bindParam("ep", $ep);
+            if ($stm->execute()) {
+                // $mess = " <center> <h3>  click the below to continue</h3>  <a href='http://localhost/alocryto/resetpassword.php?code=$code&email={$email}><button type='button' style='width:fit-content; min-width:150px; padding:10px; background-color:green;color:white; border-radius:15px;'>Verify</button></center>";
+                self::send_mail($email, $mess, "Account verification");
+                return "true";
+            } else {
+
+                return "something went wrong Contact Support";
+            }
+        }
+    }
 
 
     public static function updateInvoiceStatus($status, $address)
@@ -49,6 +92,8 @@ class Database
         $stm = $myconn->prepare($sql);
         $stm->execute();
     }
+
+
 
     public static function get_contry()
     {
@@ -362,7 +407,7 @@ Alocryptotrade
                     $stm->bindParam("ep", $ep);
                     if ($stm->execute()) {
                         // $mess = " <center> <h3>  click the below to continue</h3>  <a href='http://localhost/alocryto/resetpassword.php?code=$code&email={$email}><button type='button' style='width:fit-content; min-width:150px; padding:10px; background-color:green;color:white; border-radius:15px;'>Verify</button></center>";
-                        self::send_mail($email, $mess, "resetpassword");
+                        self::send_mail($email, $mess, "Login Attempt");
                         return "true";
                     } else {
 
@@ -480,20 +525,15 @@ Alocryptotrade
         }
     }
 
-    public static function getUserDetails($uid)
+    public static function getUserDetails()
     {
         $myconn = self::getConn();
-        $id = $uid ?? $_SESSION["userid"];
+        $id =  $_SESSION["userid"];
         $qury = "SELECT * FROM `users` WHERE id=:id";
         $stm = $myconn->prepare($qury);
         $stm->bindParam(":id", $id);
         $stm->execute();
-        // if($stm->rowCount()>0){
-        //   $row=
         return $stm->fetch();
-
-        // }
-        // return array();
     }
 
     public static function getEmail($uid)
@@ -1047,8 +1087,6 @@ Alocryptotrade
             //  ":earns" => $earns, ":withdraw" => $withdraw, ":referer" => $referer));
 
             if ($stm->execute() and $stm1->execute()) {
-
-
                 $code = self::generateRandomString(25);
                 $ep = date("Y-m-d h:i:s", strtotime(date("Y-m-d h:i:s") . " +30 minutes"));
                 //  $mess="just texting";

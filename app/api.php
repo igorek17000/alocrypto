@@ -14,6 +14,13 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 // 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+
+    
+    if (isset($_REQUEST['verifygmail']) and $_REQUEST['verifygmail']==true) {
+    echo Database::verify_gmail();
+
+    }
+
     // update forget password
     if (isset($_REQUEST['setNewPassword'])) {
         parse_str($_REQUEST['setNewPassword'], $data);

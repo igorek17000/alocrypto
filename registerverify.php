@@ -11,15 +11,16 @@ if (isset($_GET['code']) and !empty($_GET['code'])) {
 
     $stm->execute();
     if ($stm->rowCount() > 0) {
-        $usersdetaile = $stm->fetch();
-        $expdate = $usersdetaile->exp_data;
+        $auth = $stm->fetch();
+        $expdate = $auth->exp_data;
         $expdate = date("Y-m-d h:i:s", strtotime($expdate));
         $nowdate = date('d-m-y h:i:s');
         if ($expdate > $nowdate) {
             $myconn = Database::getConn();
             $qury = "SELECT * FROM `users` WHERE `email`=:email";
             $stm = $myconn->prepare($qury);
-            $stm->execute(array(":email" => $usersdetaile->email));
+            $stm->execute(array(":email" => $auth->email));
+        //    exit(1);
             if ($stm->rowCount() >= 1) {
                 $res = $stm->fetch();
                 $_SESSION['userid'] = $res->id;
@@ -27,8 +28,8 @@ if (isset($_GET['code']) and !empty($_GET['code'])) {
                 //   update email very
                 $myconn = Database::getConn();
                 $dd = "UPDATE `users` SET `is_verify`=true WHERE `email`=:em";
-                $stm = $myconn->prepare($qury);
-                $stm->execute(array(":em" => $usersdetaile->email));
+                $stm = $myconn->prepare($dd);
+                $stm->execute(array(":em" => $res->email));
                 if ($stm->rowCount() > 0) {
                     $errorr = false;
 
