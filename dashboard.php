@@ -9,13 +9,13 @@ if (Database::is_login() != true) {
     header("location:signin");
 }
 $balance = Database::roundup(Database::getBalance(),6) ;
-$inves = Database::getInvestmentBalance();
-$earn = Database::getEarnsBalance();
-$width = Database::getWithdrawBalance();
-$referer = Database::getRefererBalance();
-$bonus = Database::getbonus();
+$inves = Database::roundup(Database::getInvestmentBalance(),6);
+$earn = Database::roundup(Database::getEarnsBalance(),6);
+$width = Database::roundup(Database::getWithdrawBalance(),6);
+$referer = Database::roundup(Database::getRefererBalance(),6);
+$bonus = Database::roundup(Database::getbonus(),6);
 $pic = Database::getPicture();
-$btcprice = Database::getBTCPrice("USD");
+$btcprice = Database::roundup(Database::getBTCPrice("USD"),6);
 $id = $_SESSION["userid"];
 $reffer = Database::getRefferCode();
 
