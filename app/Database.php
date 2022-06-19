@@ -459,10 +459,10 @@ Alocryptotrade
     public static function getConn()
     {
 
-        $host = "156.67.74.101";
+        // $host = "156.67.74.101";
         $username = "u538836443_alocryptotrade";
         $password = "Adedamolarioland2222@gmail.com";
-        // $host = "localhost";
+        $host = "localhost";
         // $username = "root";
         // $password = "";
         // db=sql5440458
