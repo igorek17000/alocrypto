@@ -8,7 +8,7 @@ require "./app/Database.php";
 if (Database::is_login() != true) {
     header("location:signin");
 }
-$balance = Database::getBalance();
+$balance = Database::roundup(Database::getBalance(),6) ;
 $inves = Database::getInvestmentBalance();
 $earn = Database::getEarnsBalance();
 $width = Database::getWithdrawBalance();

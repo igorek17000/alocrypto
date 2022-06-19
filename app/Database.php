@@ -501,6 +501,23 @@ Alocryptotrade
         }
     }
 
+
+    public static function roundup($float, $dec = 2){
+        if ($dec == 0) {
+            if ($float < 0) {
+                return floor($float);
+            } else {
+                return ceil($float);
+            }
+        } else {
+            $d = pow(10, $dec);
+            if ($float < 0) {
+                return floor($float * $d) / $d;
+            } else {
+                return ceil($float * $d) / $d;
+            }
+        }
+    }
     public static function getConn()
     {
 
