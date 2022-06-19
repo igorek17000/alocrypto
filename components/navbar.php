@@ -15,18 +15,18 @@
 
                     <div class="navminwidth">
                         <ul class="nav_list">
-                            <li class="nav_item active"><a href="<?php echo BASEURL ?>" class="nav_link"><i class="fas fa-home"></i>Home</a></li>
-                            <li class="nav_item"><a href="./dashboard" class="nav_link"><i class="fas fa-clone"></i>Account</a>
+                            <li class="nav_item animate__animated animate__fadeIn"><a href="<?php echo BASEURL ?>" class="nav_link"><i class="fas fa-home"></i>Home</a></li>
+                            <li class="nav_item animate__animated animate__fadeIn"><a href="./dashboard" class="nav_link"><i class="fas fa-clone"></i>Account</a>
                                 <div class="sub-menu-1">
                                     <ul>
-                                        <li><a href="<?php echo BASEURL ?>dashboard" class="sub-style">My Account</a></li>
+                                        <li ><a href="<?php echo BASEURL ?>dashboard" class="sub-style">My Account</a></li>
                                         <li><a href="<?php echo BASEURL?>signin" class="sub-style">Login</a></li>
                                         <li><a href="<?php echo BASEURL?>signup" class="sub-style">Register</a></li>
                                         <li><a href="<?php echo BASEURL?>forgetpassword" class="sub-style">Forgot Password</a></li>
                                     </ul>
                                 </div>
                             </li>
-                            <li class="nav_item"><a href="#" class="nav_link"><i class="fas fa-clone"></i> Docs</a>
+                            <li class="nav_item animate__animated animate__fadeIn"><a href="#" class="nav_link"><i class="fas fa-clone"></i> Docs</a>
                                 <div class="sub-menu-1">
                                     <ul>
                                         <li><a href="<?php echo BASEURL?>about" class="sub-style">About Us</a></li>
@@ -38,7 +38,7 @@
                             </li>
                             <!--<li class="nav_item"><a href="#" class="nav_link"><i class="fas fa-dollar-sign"></i></i>Payouts</a>-->
                             <!--</li>-->
-                            <li class="nav_item"><a href="<?php echo BASEURL?>messageus" class="nav_link"><i class="fas fa-phone"></i>Contact Us</a></li>
+                            <li class="nav_item animate__animated animate__fadeIn"><a href="<?php echo BASEURL?>messageus" class="nav_link"><i class="fas fa-phone"></i>Contact Us</a></li>
                         </ul>
                     </div>
                     <!-- ==========NAVMAXWIDTH=========== -->

@@ -10,7 +10,10 @@ require("conf.php");
   <title>AloCryptoTrade:Resetpassword</title>
   <link href='#' rel='stylesheet'>
   <script src="https://www.momentcrm.com/embed"></script>
-
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 <script>
   MomentCRM('init', {
     'teamVanityId': 'alocryptotrade',

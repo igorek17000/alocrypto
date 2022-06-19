@@ -10,6 +10,10 @@ require("conf.php");
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="fontawesome-free-5.15.1-web/css/all.css">
     <title>Terms and Conditions</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
     <link rel="shortcut icon" href="images/mylogo.jpg" type="image/x-icon">
     <script src="https://www.momentcrm.com/embed"></script>
 <script>

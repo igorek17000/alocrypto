@@ -42,6 +42,10 @@ if(Database::SetQuery($quy,$param)){
     <title>ALOCRYPTOTRADE|Dashboard</title>
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+         <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
  <!-- <link rel="stylesheet" href="choplan.css"> -->
  <!-- <link rel="stylesheet" href="style.css"> -->
  <!-- <link rel="stylesheet" href="external.css"> -->
@@ -322,9 +326,12 @@ if (isset($_SESSION["title"]) and !empty($_SESSION["title"])) {
 if (!empty($pic)) {
 
     ?>
+            <div style="display:flex;" >
             <div class="header_img">
 
-                <img src="<?php echo "app/uploadimageF/{$pic}"; ?>" alt="">
+<img src="<?php echo "app/uploadimageF/{$pic}"; ?>" alt="">
+</div>
+<span class="text-white"><?php   echo $_SESSION['user']->name??$_SESSION['user']->email ?></span>
             </div>
             <?php
 

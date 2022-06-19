@@ -10,30 +10,34 @@ require("conf.php");
     <link rel="stylesheet" href="registration.css">
     <link rel="stylesheet" href="fontawesome-free-5.15.1-web/css/all.css">
     <title>ALOCRYPTOTRADE|Registration</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
     <link rel="shortcut icon" href="images/mylogo.jpg" type="image/x-icon">
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://www.momentcrm.com/embed"></script>
-<script>
-  MomentCRM('init', {
-    'teamVanityId': 'alocryptotrade',
-    'doChat': true,
-    'doTracking': true,
-  });
-</script>
+    <script>
+        MomentCRM('init', {
+            'teamVanityId': 'alocryptotrade',
+            'doChat': true,
+            'doTracking': true,
+        });
+    </script>
 </head>
 
 <body>
     <?php
     session_start();
     ?>
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <center>
         <header class="l-header">
-            <?php 
+            <?php
             require("./components/navbar.php")
-            
+
             ?>
         </header>
         <!-- ================================================  SECTION 41   ======================================================= -->
@@ -55,7 +59,7 @@ require("conf.php");
                         <label for="email">User Email</label>
                         <input type="email" id="email" name="email" required placeholder="Your Email..">
                     </div>
-
+                    <?php $message = $_SESSION['message']; ?>
                     <div class="colsec42">
                         <label for="password">User Password*</label>
                         <input type="password" id="password" name="password" required placeholder="Your Password..">
@@ -75,27 +79,24 @@ require("conf.php");
 
                 </form>
                 <br>
-                <label style="color: red;">
 
-                    <?php
-                    if (isset($_SESSION['message']) and !empty($_SESSION['message'])) {
-                        echo @$_SESSION['message'];
-                        @$_SESSION['message'] = "";
-                    }
-
-                    ?>
-                </label>
-                <div class="divsubm">
-
-                </div>
             </div>
         </section>
 
         <!-- ================================================== FOOTER ================================================================ -->
-   <?php require("./components/footer.php") ?>
+        <?php require("./components/footer.php") ?>
     </center>
     <script src="main.js"></script>
     <script>
+        var message = "<?php echo $message;   ?>";
+        if (message) {
+            swal({
+                title: "Verify Login",
+                text: message,
+                icon: "info",
+            });
+            // message="";
+        }
         $(document).ready(function() {
             $("#rform").submit(function(e) {
                 let pass = $.trim($("#password").val);
@@ -109,7 +110,9 @@ require("conf.php");
 
             });
         });
+
     </script>
+     <?php $_SESSION['message']="";   ?>
 </body>
 
 </html>

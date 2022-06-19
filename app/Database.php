@@ -103,7 +103,7 @@ class Database
     }
     private static function EmailMessage($title, $btntext, $link, $body, $logourl): string
     {
-$message = '<!DOCTYPE html><html>
+        $message = '<!DOCTYPE html><html>
 
 <head>
   <title></title>
@@ -220,7 +220,7 @@ $message = '<!DOCTYPE html><html>
         <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
           <tr>
             <td bgcolor="#ffffff" align="center" style="padding: 20px 30px 40px 30px; color: #000000; font-family:\'Montserrat bold\' Helvetica, Arial, sans-serif; font-size: 16px; font-weight:600; line-height: 25px;">
-              <p>'.$body.'</p>
+              <p>' . $body . '</p>
             </td>
           </tr>
           <tr>
@@ -230,7 +230,7 @@ $message = '<!DOCTYPE html><html>
                   <td bgcolor="#ffffff" align="center" style="padding: 20px 30px 60px 30px;">
                     <table border="0" cellspacing="0" cellpadding="0">
                       <tr>
-                        <td align="center" style="border-radius: 30px;" bgcolor="#000000"><a href="'.$link.'" target="_blank" style="font-size: 20px; font-family: \'Montserrat Bold\'Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 10px 55px; border-radius: 2px; display: inline-block;">'.$btntext.'</a></td>
+                        <td align="center" style="border-radius: 30px;" bgcolor="#000000"><a href="' . $link . '" target="_blank" style="font-size: 20px; font-family: \'Montserrat Bold\'Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 10px 55px; border-radius: 2px; display: inline-block;">' . $btntext . '</a></td>
                       </tr>
                     </table>
                   </td>
@@ -245,7 +245,7 @@ $message = '<!DOCTYPE html><html>
           </tr> <!-- COPY -->
           <tr>
             <td bgcolor="#ffffff" align="center" style="padding: 20px 30px 20px 30px; color: #666666; font-family:\'Montserrat\'Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 550; line-height: 25px;">
-              <p style="margin: 0;"><a href="'.$link.'" target="_blank" style="color: #29ABE2;">'.$link.'/</a></p>
+              <p style="margin: 0;"><a href="' . $link . '" target="_blank" style="color: #29ABE2;">' . $link . '/</a></p>
             </td>
           </tr>
           <tr>
@@ -262,6 +262,9 @@ $message = '<!DOCTYPE html><html>
             <td bgcolor="#ffffff" align="center" style="padding: 0px 30px 40px 30px; border-radius: 0px 0px 4px 4px; color: #333333; font-family:\'Montserrat\'Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 25px;">
             <!--  <img src="https://img.icons8.com/ios-glyphs/30/000000/facebook-new.png" /> 
                 <img src="https://img.icons8.com/material-outlined/30/000000/instagram-new.png" />-->
+                Mrs Alexander<b>
+Finance Advisor<br>
+Alocryptotrade
                  </td>
           </tr>
         </table>
@@ -311,31 +314,31 @@ $message = '<!DOCTYPE html><html>
     {
         require("../conf.php");
         $pass = md5($pass);
-        
+
         $myconn = self::getConn();
         $qury = "SELECT * FROM `users` WHERE `email`=:email AND `password`=:pass";
         $stm = $myconn->prepare($qury);
         $stm->execute(array(":email" => $email, ":pass" => $pass));
-        if ($stm->rowCount() >0) {
-            
+        if ($stm->rowCount() > 0) {
+
             $code = self::generateRandomString(25);
             $ep = date("Y-m-d h:i:s", strtotime(date("Y-m-d h:i:s") . " +30 minutes"));
             //  $mess="just texting";
-            $mess = self::EmailMessage("Login Verification","Autorize Login",BASEURL."loginverify.php?code=".$code,"we discover login attempt in you alocrytoTrade Accout. if you are the one click the following below to continue. else do password reset.","") ;
-            
+            $mess = self::EmailMessage("Login Verification", "Autorize Login", BASEURL . "loginverify.php?code=" . $code, "we discover login attempt in you alocrytoTrade Accout. if you are the one click the following below to continue. else do password reset.", "");
+
             $sel = "SELECT * FROM `users` WHERE `email`=:em";
             $stmm = self::getConn()->prepare($sel);
             $stmm->bindParam("em", $email);
             $stmm->execute();
-          
+
             if ($stmm->rowCount() > 0) {
-                
+
                 $sel = "SELECT * FROM `authorization` WHERE `email`=:em";
                 $stmm = self::getConn()->prepare($sel);
                 $stmm->bindParam("em", $email);
                 $stmm->execute();
                 if ($stmm->rowCount() > 0) {
-    
+
                     $sel1 = "UPDATE `authorization` SET `code` =:cd , `exp_data`=:dp WHERE `email`=:em";
                     $stmm = self::getConn()->prepare($sel1);
                     $stmm->bindParam("em", $email);
@@ -343,15 +346,15 @@ $message = '<!DOCTYPE html><html>
                     $stmm->bindParam("dp", $ep);
                     $stmm->execute();
                     if ($stmm->rowCount() > 0) {
-                         
+
                         self::send_mail($email, $mess, "Login Attempt");
                         return "true";
-                    }else{
+                    } else {
 
                         return "something went wrong Contact Support";
                     }
                 } else {
-    
+
                     $ee = "INSERT INTO `authorization`( `code`, `email`, `exp_data`) VALUES (:co,:em,:ep)";
                     $stm = self::getConn()->prepare($ee);
                     $stm->bindParam("co", $code);
@@ -361,16 +364,15 @@ $message = '<!DOCTYPE html><html>
                         // $mess = " <center> <h3>  click the below to continue</h3>  <a href='http://localhost/alocryto/resetpassword.php?code=$code&email={$email}><button type='button' style='width:fit-content; min-width:150px; padding:10px; background-color:green;color:white; border-radius:15px;'>Verify</button></center>";
                         self::send_mail($email, $mess, "resetpassword");
                         return "true";
-                    }else{
+                    } else {
 
                         return "something went wrong Contact Support";
                     }
                 }
-            }else{
+            } else {
                 return "Unrecorgnized Email";
             }
-            
-        }else{
+        } else {
 
             return "Invalid Login details";
         }
@@ -616,7 +618,6 @@ $message = '<!DOCTYPE html><html>
             } else {
                 return "token time as expaired try again";
             }
-           
         } else {
             return "invalid link refrence try again";
         }
@@ -1051,21 +1052,22 @@ $message = '<!DOCTYPE html><html>
                 $code = self::generateRandomString(25);
                 $ep = date("Y-m-d h:i:s", strtotime(date("Y-m-d h:i:s") . " +30 minutes"));
                 //  $mess="just texting";
-                $mess = self::EmailMessage("Login Verification","Autorize Login",BASEURL."loginverify.php?code=".$code,"we discover login attempt in you alocrytoTrade Accout. if you are the one click the following below to continue. else do password reset.","") ;
-                
+                $mess = self::EmailMessage("Account Verification", "Verification Account", BASEURL . "registerverify.php?code=" . $code, "The message should read....you are welcome to Alocryptotrade. A platform that trade on Bitcoin, mining Bitcoin and also trade on forex. We give $200 on registration and upon activating your Account with funding it. You get interest every 10hrs .
+                Thanks", "");
+
                 $sel = "SELECT * FROM `users` WHERE `email`=:em";
                 $stmm = self::getConn()->prepare($sel);
                 $stmm->bindParam("em", $email);
                 $stmm->execute();
-              
+
                 if ($stmm->rowCount() > 0) {
-                    
+
                     $sel = "SELECT * FROM `authorization` WHERE `email`=:em";
                     $stmm = self::getConn()->prepare($sel);
                     $stmm->bindParam("em", $email);
                     $stmm->execute();
                     if ($stmm->rowCount() > 0) {
-        
+
                         $sel1 = "UPDATE `authorization` SET `code` =:cd , `exp_data`=:dp WHERE `email`=:em";
                         $stmm = self::getConn()->prepare($sel1);
                         $stmm->bindParam("em", $email);
@@ -1073,15 +1075,15 @@ $message = '<!DOCTYPE html><html>
                         $stmm->bindParam("dp", $ep);
                         $stmm->execute();
                         if ($stmm->rowCount() > 0) {
-                             
-                            self::send_mail($email, $mess, "Login Attempt");
+
+                            self::send_mail($email, $mess, "new account");
                             return "true";
-                        }else{
-    
+                        } else {
+
                             return "something went wrong Contact Support";
                         }
                     } else {
-        
+
                         $ee = "INSERT INTO `authorization`( `code`, `email`, `exp_data`) VALUES (:co,:em,:ep)";
                         $stm = self::getConn()->prepare($ee);
                         $stm->bindParam("co", $code);
@@ -1089,17 +1091,16 @@ $message = '<!DOCTYPE html><html>
                         $stm->bindParam("ep", $ep);
                         if ($stm->execute()) {
                             // $mess = " <center> <h3>  click the below to continue</h3>  <a href='http://localhost/alocryto/resetpassword.php?code=$code&email={$email}><button type='button' style='width:fit-content; min-width:150px; padding:10px; background-color:green;color:white; border-radius:15px;'>Verify</button></center>";
-                            self::send_mail($email, $mess, "resetpassword");
+                            self::send_mail($email, $mess, "new account");
                             return "true";
-                        }else{
-    
+                        } else {
+
                             return "something went wrong Contact Support";
                         }
                     }
-                }else{
+                } else {
                     return "Unrecorgnized Email";
                 }
-
             } else {
                 return "Error in registeration contact the admin";
             }
@@ -1193,7 +1194,7 @@ $message = '<!DOCTYPE html><html>
             return true;
         } catch (Exception $e) {
             // die($e);
-             echo "Message could not be sent. Mailer Error: {$e}";
+            echo "Message could not be sent. Mailer Error: {$e}";
             return false;
         }
     }

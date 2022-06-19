@@ -13,7 +13,10 @@ require("conf.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="external.css">
     <link rel="stylesheet" href="./css/global.css">
-    <link rel="stylesheet" href="fontawesome-free-5.15.1-web/css/all.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
     <title>Alocryptotrade</title>
     <link rel="shortcut icon" href="images/mylogo.jpg" type="image/x-icon">
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
@@ -205,7 +208,7 @@ require("conf.php");
 
                 <div class="flexbasis">
                     <div class="flex1">
-                        <img src="<?php echo BASEURL ?>images/sec3 img.png" alt="">
+                        <img src="<?php echo BASEURL?>images/sec3 img.png" alt="">
                     </div>
                 </div>
 
@@ -223,7 +226,7 @@ require("conf.php");
             <div class="overallflexsec4">
                 <div class="boxxiplan2">
                     <div class="flexbasisboxxi">
-                        <img src="<?php echo BASEURL ?> /images/borderadd.jpg">
+                        <img src="<?php echo BASEURL?>images/borderadd.jpg">
                         <div class="textti">
                             <h3>STARTER PLAN</h3>
                         </div>
@@ -257,7 +260,7 @@ require("conf.php");
 
                 <div class="boxxiplan2">
                     <div class="flexbasisboxxi">
-                        <img src="<?php echo BASEURL ?>images/borderadd.jpg">
+                        <img src="<?php echo BASEURL?>images/borderadd.jpg">
                         <div class="texttioinge">
                             <h3>PREMIUM PLAN</h3>
                         </div>
@@ -291,7 +294,7 @@ require("conf.php");
                 <!--========================== plan 3 ============================== -->
                 <div class="boxxiplan2">
                     <div class="flexbasisboxxi">
-                        <img src="<?php echo BASEURL ?>images/borderadd.jpg">
+                        <img src="<?php echo BASEURL?>images/borderadd.jpg">
                         <div class="texttioinge">
                             <h3>SILVER PLAN</h3>
                         </div>
@@ -326,7 +329,7 @@ require("conf.php");
                 <!--========================== plan 4 ============================== -->
                 <div class="boxxiplan2">
                     <div class="flexbasisboxxi">
-                        <img src="<?php echo BASEURL ?>images/borderadd.jpg">
+                        <img src="<?php echo BASEURL?>images/borderadd.jpg">
                         <div class="textti">
                             <h3>GOLD PLAN</h3>
                         </div>
@@ -362,7 +365,7 @@ require("conf.php");
                 <div class="plans2a">
                     <div class="boxxi">
                         <div class="flexbasisboxxi">
-                            <img src="<?php echo BASEURL ?>images/borderadd.jpg">
+                            <img src="<?php echo BASEURL?>images/borderadd.jpg">
                             <div class="textti">
                                 <h3>STARTER PLAN</h3>
                             </div>
@@ -396,7 +399,7 @@ require("conf.php");
 
                     <div class="boxxiplan22">
                         <div class="flexbasisboxxi">
-                            <img src="<?php echo BASEURL ?>images/borderadd.jpg">
+                            <img src="<?php echo BASEURL?>images/borderadd.jpg">
                             <div class="texttioinge">
                                 <h3>PREMIUM PLAN</h3>
                             </div>
@@ -432,7 +435,7 @@ require("conf.php");
                 <div class="plans2b">
                     <div class="boxxiplan2">
                         <div class="flexbasisboxxi">
-                            <img src="<?php echo BASEURL ?>images/borderadd.jpg">
+                            <img src="<?php echo BASEURL?>images/borderadd.jpg">
                             <div class="texttioinge">
                                 <h3>SILVER PLAN</h3>
                             </div>
@@ -467,7 +470,7 @@ require("conf.php");
                     <!--========================== plan 4 ============================== -->
                     <div class="boxxiplan24">
                         <div class="flexbasisboxxi">
-                            <img src="<?php echo BASEURL ?>images/borderadd.jpg">
+                            <img src="<?php echo BASEURL?>images/borderadd.jpg">
                             <div class="textti">
                                 <h3>GOLD PLAN</h3>
                             </div>
@@ -505,7 +508,7 @@ require("conf.php");
             <h1>Concise Explainer</h1>
             <div class="flexsec5">
                 <div class="col">
-                    <img src="<?php echo BASEURL ?>images/abstract-blockchain-2t-scaled-600x350.jpg">
+                    <img src="<?php echo BASEURL?>images/abstract-blockchain-2t-scaled-600x350.jpg">
                 </div>
                 <div class="col">
                     <p>Alocryptotrade is a leading provider of online bitcoin foreign exchange (FX) trading located in west London,
@@ -564,7 +567,7 @@ require("conf.php");
                 <div class="backgdlf">
                     <div class="imgtxtflexxi">
                         <div class="imgjustfy">
-                            <img src="./images/pexeluser2.jpg" alt="member picture">
+                            <img src="<?php echo BASEURL?>images/pexeluser2.jpeg" alt="member picture">
                         </div>
                         <div class="backgtexxti">
                             <div class="icon">
@@ -605,7 +608,7 @@ require("conf.php");
                             </div>
                         </div>
                         <div class="imgjustfyright">
-                            <img src="<?php echo BASEURL ?>images/pexels-matheus-mmk-9331292.jpg" alt="member picture">
+                            <img src="<?php echo BASEURL;?>images/pexels-matheus-mmk-9331292.jpeg" alt="member picture">
                         </div>
                     </div>
                 </div>
@@ -615,7 +618,7 @@ require("conf.php");
                 <div class="backgdlf">
                     <div class="imgtxtflexxi">
                         <div class="imgjustfy">
-                            <img src="<?php echo BASEURL ?>images/pexels-andrea-piacquadio-3782164.jpg" alt="member picture">
+                            <img src="<?php echo BASEURL?>images/pexels-andrea-piacquadio-3782164.jpeg" alt="member picture">
                         </div>
                         <div class="backgtexxti">
                             <div class="icon">
@@ -642,7 +645,7 @@ require("conf.php");
                 </div>
 
                 <div class="ahref">
-                    <a href="testimony" class="lihover">check out more Testimonials</a>
+                    <a href="<?php echo BASEURL?>testimony" class="lihover">check out more Testimonials</a>
                 </div>
 
             </div>
